@@ -30,6 +30,26 @@ copyright file. A static binary can be run as `./axam` from the download
 directory; copying it onto `PATH` is optional. These paths do not need a Go
 toolchain.
 
+### Homebrew (macOS and Linux)
+
+One-shot:
+
+```bash
+brew install alexshescp/axam/axam
+axam version
+```
+
+Or tap once, then install with the short name:
+
+```bash
+brew tap alexshescp/axam
+brew install axam
+```
+
+Update later with `brew upgrade axam`. Tap:
+[alexshescp/homebrew-axam](https://github.com/alexshescp/homebrew-axam).
+Packaging notes: [packaging/homebrew/README.md](packaging/homebrew/README.md).
+
 ### Debian and Ubuntu, 64-bit Intel/AMD
 
 ```bash
@@ -150,15 +170,6 @@ awk '
 Then start `mc` and press F4. Older Midnight Commander reads `~/.mc/ini`
 instead of `~/.config/mc/ini`; put `use_internal_edit=0` in the file that
 installation uses.
-
-### Homebrew
-
-```bash
-brew install alexshescp/axam/axam
-```
-
-Tap: [alexshescp/homebrew-axam](https://github.com/alexshescp/homebrew-axam).
-Details: [packaging/homebrew/README.md](packaging/homebrew/README.md).
 
 ### Arch Linux (AUR)
 

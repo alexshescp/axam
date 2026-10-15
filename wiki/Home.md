@@ -31,8 +31,16 @@ Axam Studio is that tool for our own teams — and it is open source so you can 
 
 ## What you get in 30 seconds
 
+Homebrew (macOS or Linux):
+
 ```bash
-# Debian / Ubuntu (amd64)
+brew install alexshescp/axam/axam
+axam
+```
+
+Debian / Ubuntu (amd64):
+
+```bash
 curl -fL -o axam_1.1.0_amd64.deb \
   https://github.com/alexshescp/axam/releases/download/v1.1.0/axam_1.1.0_amd64.deb
 sudo apt install ./axam_1.1.0_amd64.deb
@@ -59,7 +67,7 @@ Press **F10** for a Sublime-style bottom menu: File, Edit, Selection, Find, View
 | **Keymap profiles** | Axam Studio, Sublime-inspired, VS Code-inspired, Notepad++-inspired. |
 | **Safe saves** | Atomic replace on Unix; backup option; external-change detection. |
 | **Pending files** | Close an untouched new path — no empty file left behind. |
-| **Static binaries** | Linux and macOS, amd64 and arm64. No Go toolchain required to install. |
+| **Static binaries** | Linux and macOS, amd64 and arm64. Homebrew tap or direct download — no Go toolchain required. |
 | **Midnight Commander** | Set `EDITOR=axam` and turn off the internal editor — F4 opens Axam. |
 
 More detail: [Features](Features) · [Install](Install) · [Midnight Commander](Midnight-Commander) · [Terminal honesty](Terminal-Honesty)

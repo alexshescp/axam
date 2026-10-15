@@ -4,6 +4,25 @@ Release **1.1.0** uses GitHub tag `v1.1.0`. You do not need a Go toolchain for t
 
 Assets: [https://github.com/alexshescp/axam/releases/tag/v1.1.0](https://github.com/alexshescp/axam/releases/tag/v1.1.0)
 
+## Homebrew (macOS and Linux)
+
+One-shot:
+
+```bash
+brew install alexshescp/axam/axam
+axam version
+```
+
+Or tap once, then use the short name:
+
+```bash
+brew tap alexshescp/axam
+brew install axam
+```
+
+Update with `brew upgrade axam`. Tap repository:
+[alexshescp/homebrew-axam](https://github.com/alexshescp/homebrew-axam).
+
 ## Debian / Ubuntu, 64-bit Intel/AMD
 
 ```bash
@@ -109,4 +128,4 @@ axam notes1.txt
 
 Wire F4 in Midnight Commander: [Midnight Commander](Midnight-Commander).
 
-Update by installing a newer `.deb` or replacing the binary. `config.toml` and `state.json` are user files and are not removed by package upgrades.
+Update with `brew upgrade axam`, by installing a newer `.deb`, or by replacing the binary. `config.toml` and `state.json` are user files and are not removed by package upgrades.
