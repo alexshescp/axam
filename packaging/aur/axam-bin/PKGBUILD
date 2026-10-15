@@ -1,0 +1,20 @@
+# Maintainer: Aleksandr Shaman <axam@codcl.com>
+# Axam Studio — prebuilt binary from GitHub Releases
+pkgname=axam-bin
+pkgver=1.1.0
+pkgrel=1
+pkgdesc='Axam Studio — modeless terminal text editor'
+arch=('x86_64' 'aarch64')
+url='https://github.com/alexshescp/axam'
+license=('GPL-3.0-or-later')
+provides=('axam')
+conflicts=('axam')
+options=('!strip')
+source_x86_64=("axam-${pkgver}-x86_64::https://github.com/alexshescp/axam/releases/download/v${pkgver}/axam_linux_amd64")
+source_aarch64=("axam-${pkgver}-aarch64::https://github.com/alexshescp/axam/releases/download/v${pkgver}/axam_linux_arm64")
+sha256sums_x86_64=('e0bd5a9e0329eed5cbe4cc7f7389aa3715986d7d4b0d272afa044a98ee448077')
+sha256sums_aarch64=('13c2e7b85c34d3b9ab9afaaace437658376e529e1fd0b65b9ef137d2149b4e4c')
+
+package() {
+  install -Dm755 "axam-${pkgver}-${CARCH}" "${pkgdir}/usr/bin/axam"
+}

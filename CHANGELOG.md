@@ -34,6 +34,8 @@ for release artifacts.
 - Install instructions include a direct GitHub release download and an
   optional install command for each Linux and macOS target, plus the
   Midnight Commander `EDITOR` setup.
+- Homebrew formula and AUR `PKGBUILD` templates under `packaging/homebrew`
+  and `packaging/aur`.
 
 ### Preserved limitations
 

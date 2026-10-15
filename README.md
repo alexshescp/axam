@@ -151,6 +151,26 @@ Then start `mc` and press F4. Older Midnight Commander reads `~/.mc/ini`
 instead of `~/.config/mc/ini`; put `use_internal_edit=0` in the file that
 installation uses.
 
+### Homebrew
+
+```bash
+brew install alexshescp/axam/axam
+```
+
+Tap: [alexshescp/homebrew-axam](https://github.com/alexshescp/homebrew-axam).
+Details: [packaging/homebrew/README.md](packaging/homebrew/README.md).
+
+### Arch Linux (AUR)
+
+Package files live under [packaging/aur](packaging/aur). After they are on the
+AUR:
+
+```bash
+yay -S axam-bin    # prebuilt binary
+# or
+yay -S axam        # build from source
+```
+
 With a Go toolchain:
 
 ```bash
