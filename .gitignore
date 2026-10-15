@@ -1,0 +1,8 @@
+/axam
+/axam.exe
+/termstudio
+/termstudio.exe
+/dist/
+*.deb
+*.exe
+/coverage.out

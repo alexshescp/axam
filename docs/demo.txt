@@ -1,0 +1,24 @@
+   main.go                                                                      
+  1 package main                                                                
+  2                                                                             
+  3 import "fmt"                                                                
+  4                                                                             
+  5 func main() {                                                               
+  6     fmt.Println("axam")                                                     
+  7 }                                                                           
+  8                                                                             
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+ File  Edit  Selection  Find  View  Goto  Help                         F10 Menu 
+ main.go   1:1                                        go  UTF-8  LF  termstudio
