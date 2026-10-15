@@ -1,5 +1,8 @@
 /axam
 /axam.exe
+
+# Generated locally and by .github/workflows/release.yml. Release assets are
+# uploaded directly to GitHub Releases and must not be committed to Git.
 /dist/
 *.deb
 *.exe

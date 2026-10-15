@@ -169,6 +169,12 @@ go build -o axam ./cmd/axam
 
 `make dist` and `build.ps1` cross-compile the four binaries and the two `.deb` packages. Version 1.1.0 is the default; `-X main.version=` overrides `axam version`.
 
+GitHub Releases are built automatically when a version tag is pushed. For
+example, `git tag v1.1.0 && git push origin v1.1.0` runs the release workflow
+and attaches the four static binaries, two `.deb` packages, and `SHA256SUMS`
+to that release. The generated `dist/` directory stays ignored because
+release assets are uploaded by the workflow rather than committed to Git.
+
 Update by installing a newer `.deb` or by replacing the binary. `config.toml`
 and `state.json` are user files and are not removed by package upgrades.
 Release changes are in [CHANGELOG.md](CHANGELOG.md).
