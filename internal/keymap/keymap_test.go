@@ -6,7 +6,7 @@ package keymap
 import (
 	"testing"
 
-	"github.com/codersclub/axam/internal/commands"
+	"github.com/alexshescp/axam/internal/commands"
 )
 
 func TestProfilesResolveBaseline(t *testing.T) {
@@ -17,43 +17,43 @@ func TestProfilesResolveBaseline(t *testing.T) {
 		chord   string
 		command string
 	}{
-		{"termstudio", "ctrl+n", commands.FileNew},
-		{"termstudio", "ctrl+o", commands.FileOpen},
-		{"termstudio", "ctrl+s", commands.FileSave},
-		{"termstudio", "ctrl+shift+s", commands.FileSaveAs},
-		{"termstudio", "ctrl+k ctrl+s", commands.FileSaveAs},
-		{"termstudio", "ctrl+w", commands.FileClose},
-		{"termstudio", "ctrl+shift+t", commands.FileReopen},
-		{"termstudio", "ctrl+tab", commands.NavNextTab},
-		{"termstudio", "ctrl+shift+tab", commands.NavPrevTab},
-		{"termstudio", "ctrl+z", commands.EditUndo},
-		{"termstudio", "ctrl+y", commands.EditRedo},
-		{"termstudio", "ctrl+x", commands.EditCut},
-		{"termstudio", "ctrl+c", commands.EditCopy},
-		{"termstudio", "ctrl+v", commands.EditPaste},
-		{"termstudio", "ctrl+a", commands.EditSelectAll},
-		{"termstudio", "ctrl+d", commands.EditNextOccurrence},
-		{"termstudio", "ctrl+shift+k", commands.EditDeleteLine},
-		{"termstudio", "ctrl+/", commands.EditComment},
-		{"termstudio", "ctrl+_", commands.EditComment},
-		{"termstudio", "tab", commands.EditIndent},
-		{"termstudio", "shift+tab", commands.EditOutdent},
-		{"termstudio", "ctrl+f", commands.FindOpen},
-		{"termstudio", "ctrl+h", commands.FindReplace},
-		{"termstudio", "ctrl+g", commands.FindGoto},
-		{"termstudio", "ctrl+p", commands.NavQuickOpen},
-		{"termstudio", "ctrl+shift+p", commands.ViewPalette},
-		{"termstudio", "ctrl+k ctrl+p", commands.ViewPalette},
-		{"termstudio", "ctrl+home", commands.MoveDocStart},
-		{"termstudio", "ctrl+end", commands.MoveDocEnd},
-		{"termstudio", "shift+up", commands.MoveSelectUp},
-		{"termstudio", "shift+down", commands.MoveSelectDown},
-		{"termstudio", "shift+left", commands.MoveSelectLeft},
-		{"termstudio", "shift+right", commands.MoveSelectRight},
-		{"termstudio", "ctrl+shift+left", commands.MoveSelectWordLeft},
-		{"termstudio", "ctrl+shift+right", commands.MoveSelectWordRight},
-		{"termstudio", "ctrl+shift+home", commands.MoveSelectDocStart},
-		{"termstudio", "ctrl+shift+end", commands.MoveSelectDocEnd},
+		{"axam", "ctrl+n", commands.FileNew},
+		{"axam", "ctrl+o", commands.FileOpen},
+		{"axam", "ctrl+s", commands.FileSave},
+		{"axam", "ctrl+shift+s", commands.FileSaveAs},
+		{"axam", "ctrl+k ctrl+s", commands.FileSaveAs},
+		{"axam", "ctrl+w", commands.FileClose},
+		{"axam", "ctrl+shift+t", commands.FileReopen},
+		{"axam", "ctrl+tab", commands.NavNextTab},
+		{"axam", "ctrl+shift+tab", commands.NavPrevTab},
+		{"axam", "ctrl+z", commands.EditUndo},
+		{"axam", "ctrl+y", commands.EditRedo},
+		{"axam", "ctrl+x", commands.EditCut},
+		{"axam", "ctrl+c", commands.EditCopy},
+		{"axam", "ctrl+v", commands.EditPaste},
+		{"axam", "ctrl+a", commands.EditSelectAll},
+		{"axam", "ctrl+d", commands.EditNextOccurrence},
+		{"axam", "ctrl+shift+k", commands.EditDeleteLine},
+		{"axam", "ctrl+/", commands.EditComment},
+		{"axam", "ctrl+_", commands.EditComment},
+		{"axam", "tab", commands.EditIndent},
+		{"axam", "shift+tab", commands.EditOutdent},
+		{"axam", "ctrl+f", commands.FindOpen},
+		{"axam", "ctrl+h", commands.FindReplace},
+		{"axam", "ctrl+g", commands.FindGoto},
+		{"axam", "ctrl+p", commands.NavQuickOpen},
+		{"axam", "ctrl+shift+p", commands.ViewPalette},
+		{"axam", "ctrl+k ctrl+p", commands.ViewPalette},
+		{"axam", "ctrl+home", commands.MoveDocStart},
+		{"axam", "ctrl+end", commands.MoveDocEnd},
+		{"axam", "shift+up", commands.MoveSelectUp},
+		{"axam", "shift+down", commands.MoveSelectDown},
+		{"axam", "shift+left", commands.MoveSelectLeft},
+		{"axam", "shift+right", commands.MoveSelectRight},
+		{"axam", "ctrl+shift+left", commands.MoveSelectWordLeft},
+		{"axam", "ctrl+shift+right", commands.MoveSelectWordRight},
+		{"axam", "ctrl+shift+home", commands.MoveSelectDocStart},
+		{"axam", "ctrl+shift+end", commands.MoveSelectDocEnd},
 		{"vscode", "alt+up", commands.EditMoveLineUp},
 		{"vscode", "ctrl+shift+k", commands.EditDeleteLine},
 		{"vscode", "ctrl+d", commands.EditNextOccurrence},
@@ -94,7 +94,7 @@ func TestProfilesResolveBaseline(t *testing.T) {
 }
 
 func TestSequencePrefix(t *testing.T) {
-	m, _, err := Load("termstudio")
+	m, _, err := Load("axam")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -128,7 +128,7 @@ func TestDuplicateRejected(t *testing.T) {
 }
 
 func TestUserOverride(t *testing.T) {
-	m, _, err := Load("termstudio")
+	m, _, err := Load("axam")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -154,6 +154,20 @@ func TestNotepadDoesNotStealQuickOpen(t *testing.T) {
 	cmd, _ = m.Resolve(MustChord("ctrl+k ctrl+o"))
 	if cmd != commands.NavQuickOpen {
 		t.Fatal(cmd)
+	}
+}
+
+func TestLegacyTermStudioProfileAlias(t *testing.T) {
+	m, info, err := Load("termstudio")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if info.ID != "axam" || info.Title != "Axam Studio" {
+		t.Fatalf("alias resolved to %+v", info)
+	}
+	cmd, _ := m.Resolve(MustChord("ctrl+d"))
+	if cmd != commands.EditNextOccurrence {
+		t.Fatalf("alias ctrl+d -> %q", cmd)
 	}
 }
 

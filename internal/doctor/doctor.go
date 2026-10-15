@@ -46,7 +46,7 @@ func Collect(width, height, colors int) Report {
 	if r.SSH {
 		r.Notes = append(r.Notes, "SSH session. The keyboard is the remote terminal's byte stream, not the Mac's Command key. Command+C, Command+X, and Command+V are not available here.")
 	} else {
-		r.Notes = append(r.Notes, "Command/Super shortcuts are not claimed. Terminals do not deliver them as distinct events to a remote or local TUI in a way TermStudio can rely on.")
+		r.Notes = append(r.Notes, "Command/Super shortcuts are not claimed. Terminals do not deliver them as distinct events to a remote or local TUI in a way Axam Studio can rely on.")
 	}
 	r.Notes = append(r.Notes, keyboardNote(r))
 	r.Notes = append(r.Notes, colorNote(r))
@@ -106,7 +106,7 @@ func firstEnv(keys ...string) string {
 // String renders the report for a terminal or a document.
 func (r Report) String() string {
 	var b strings.Builder
-	fmt.Fprintf(&b, "axam doctor — TermStudio\n\n")
+	fmt.Fprintf(&b, "axam doctor — Axam Studio\n\n")
 	if r.Width > 0 {
 		fmt.Fprintf(&b, "Size:        %d×%d\n", r.Width, r.Height)
 	} else {

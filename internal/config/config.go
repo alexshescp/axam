@@ -42,7 +42,7 @@ type State struct {
 // Defaults is the configuration used when no file exists.
 func Defaults() Config {
 	return Config{
-		KeymapProfile:     "termstudio",
+		KeymapProfile:     "axam",
 		Theme:             "dark",
 		TabSize:           4,
 		InsertSpaces:      true,
@@ -59,10 +59,10 @@ func Defaults() Config {
 
 // Template is the file written the first time axam runs.
 func Template() string {
-	return `# axam — TermStudio
+	return `# axam — Axam Studio
 # Edit this file like source code. Invalid values are reported with their location.
 
-keymap_profile = "termstudio"  # termstudio | sublime | vscode | notepadpp | custom
+keymap_profile = "axam"        # axam | sublime | vscode | notepadpp | custom
 theme = "dark"                 # dark | light | mono
 tab_size = 4
 insert_spaces = true
@@ -132,9 +132,9 @@ func Load(path string) (Config, bool, error) {
 // Validate checks fields that TOML types cannot express.
 func (c Config) Validate() error {
 	switch c.KeymapProfile {
-	case "termstudio", "sublime", "vscode", "notepadpp", "custom", "default":
+	case "axam", "termstudio", "sublime", "vscode", "notepadpp", "custom", "default":
 	default:
-		return fmt.Errorf("keymap_profile %q is not one of termstudio, sublime, vscode, notepadpp, custom", c.KeymapProfile)
+		return fmt.Errorf("keymap_profile %q is not one of axam, sublime, vscode, notepadpp, custom", c.KeymapProfile)
 	}
 	switch c.Theme {
 	case "dark", "light", "mono":

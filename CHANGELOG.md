@@ -25,6 +25,12 @@ for release artifacts.
   confirms it.
 - README, terminal guidance, shortcuts, manual matrix, demo, packaging, and
   version output now describe 1.1 behavior.
+- The product name is Axam Studio. The Go module path is
+  `github.com/alexshescp/axam`.
+- The default keymap profile id is `axam`. Configs that still say
+  `termstudio` load that same profile.
+- The Debian package installs `/usr/bin/axam` without a second command name.
+- Support mail is axam@codcl.com.
 
 ### Preserved limitations
 
@@ -44,7 +50,7 @@ Initial working release:
   multiple cursors, undo/redo, and line operations.
 - tcell terminal UI with tabs, panes, explorer, status, find/replace, command
   palette, quick open, project search, mouse, and bracketed paste.
-- TermStudio, Sublime, VS Code, and Notepad++ compatibility profiles.
+- Axam Studio, Sublime, VS Code, and Notepad++ compatibility profiles.
 - Chroma lexical highlighting for the documented language set.
 - atomic-save preparation, external-change detection, backup option, encoding
   and EOL preservation, binary and large-file guards.

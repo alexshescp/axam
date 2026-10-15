@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/codersclub/axam/internal/app"
-	"github.com/codersclub/axam/internal/config"
+	"github.com/alexshescp/axam/internal/app"
+	"github.com/alexshescp/axam/internal/config"
 	"github.com/gdamore/tcell/v2"
 )
 

@@ -12,8 +12,8 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/codersclub/axam/internal/buffer"
-	"github.com/codersclub/axam/internal/text"
+	"github.com/alexshescp/axam/internal/buffer"
+	"github.com/alexshescp/axam/internal/text"
 )
 
 // Cursor is one selection. An empty selection has Anchor == Head.

@@ -8,10 +8,10 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/codersclub/axam/internal/editor"
-	"github.com/codersclub/axam/internal/input"
-	"github.com/codersclub/axam/internal/keymap"
-	"github.com/codersclub/axam/internal/text"
+	"github.com/alexshescp/axam/internal/editor"
+	"github.com/alexshescp/axam/internal/input"
+	"github.com/alexshescp/axam/internal/keymap"
+	"github.com/alexshescp/axam/internal/text"
 	"github.com/gdamore/tcell/v2"
 )
 

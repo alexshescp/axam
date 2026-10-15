@@ -1,11 +1,14 @@
-# axam
+# Axam Studio
 
-TermStudio is a modeless terminal text editor. The command you install and run is **axam**. A package also links that binary as `termstudio`.
+Axam Studio is a modeless terminal text editor. The command you install and run is **axam**.
+
+Source: [github.com/alexshescp/axam](https://github.com/alexshescp/axam). The Go module path is `github.com/alexshescp/axam`.
 
 It is a Go program with its own text engine and its own screen. It is not a skin on Vim, Nano, or Micro.
 
 Copyright (C) 2026 Coders Club (USA), Codepolder (Netherlands), Aleksandr Shaman.  
-License: GPL-3.0-or-later. See [LICENSE](LICENSE).
+License: GPL-3.0-or-later. See [LICENSE](LICENSE).  
+Support: [axam@codcl.com](mailto:axam@codcl.com).
 
 ## Contents
 
@@ -26,10 +29,9 @@ A local Debian package, then a copy of the binary, are the two install paths. Yo
 ```bash
 sudo apt install ./axam_1.1.0_amd64.deb
 axam
-termstudio
 ```
 
-`apt` accepts a path to a `.deb`. The package installs `/usr/bin/axam` and `/usr/bin/termstudio` (a symlink). arm64 builds use `axam_1.1.0_arm64.deb`.
+`apt` accepts a path to a `.deb`. The package installs `/usr/bin/axam`, its manual page, and copyright metadata. arm64 builds use `axam_1.1.0_arm64.deb`.
 
 Or download the static binary for your OS and put it on `PATH`:
 
@@ -42,12 +44,19 @@ Or download the static binary for your OS and put it on `PATH`:
 
 ```bash
 install -m 0755 axam_linux_amd64 /usr/local/bin/axam
-ln -sf /usr/local/bin/axam /usr/local/bin/termstudio
+```
+
+With a Go toolchain:
+
+```bash
+go install github.com/alexshescp/axam/cmd/axam@latest
 ```
 
 Build from source:
 
 ```bash
+git clone https://github.com/alexshescp/axam.git
+cd axam
 go test ./...
 go vet ./...
 go build -o axam ./cmd/axam
@@ -129,7 +138,7 @@ terminal-cell column through short lines. Tabs, Cyrillic, combining
 characters, invalid UTF-8 bytes, emoji, bytes, and terminal cells are not
 treated as one coordinate system.
 
-Profiles are TermStudio Default, Sublime Text-inspired, VS Code-inspired, and
+Profiles are Axam Studio (`axam`, the default), Sublime Text-inspired, VS Code-inspired, and
 Notepad++-inspired. They are compatibility maps, not claims of desktop
 equivalence. Print one with:
 
@@ -159,7 +168,7 @@ defaults. Invalid or unknown settings name the file and location and prevent
 startup.
 
 ```toml
-keymap_profile = "termstudio"
+keymap_profile = "axam"
 theme = "dark"
 tab_size = 4
 insert_spaces = true
@@ -169,6 +178,8 @@ show_trailing_whitespace = true
 explorer = false
 clipboard = "auto"
 ```
+
+`keymap_profile = "termstudio"` from configs written before the rename is still accepted and loads the `axam` profile.
 
 `clipboard` is `auto`, `internal`, `osc52`, `xclip`, or `wl-copy`. Only `xclip` and `wl-copy` run a local program. Copy always fills the editor clipboard. OSC 52 is sent when the mode is not `internal`, and that send is not treated as proof the system clipboard changed.
 
@@ -278,7 +289,7 @@ surfaces.
 > 4      fmt.Println("axam")
   5  }
  File  Edit  Selection  Find  View  Goto  Help              F10 Menu
- main.go ●   4:5          go  UTF-8  LF  termstudio
+ main.go ●   4:5          go  UTF-8  LF  axam
 ```
 
 A captured 80×24 frame from the simulator is in [docs/demo.txt](docs/demo.txt). It is the real draw path, not a picture of another editor.

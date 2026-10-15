@@ -7,7 +7,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/codersclub/axam/internal/text"
+	"github.com/alexshescp/axam/internal/text"
 )
 
 func TestRoundTripEOL(t *testing.T) {

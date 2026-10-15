@@ -8,14 +8,14 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/codersclub/axam/internal/keymap"
+	"github.com/alexshescp/axam/internal/keymap"
 )
 
 // DecodeSequences parses a byte stream the way a modern xterm-like terminal
 // emits keys: legacy CSI, SS3, modifyOtherKeys, and Kitty CSI-u.
 //
 // The running editor does not use this parser. tcell decodes the tty.
-// This function is the reproducible harness for the sequences TermStudio
+// This function is the reproducible harness for the sequences Axam Studio
 // depends on, and its results are the keymap keys Normalize must produce
 // for the matching tcell events.
 func DecodeSequences(in []byte) []keymap.Key {

@@ -8,8 +8,8 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/codersclub/axam/internal/syntax"
-	"github.com/codersclub/axam/internal/text"
+	"github.com/alexshescp/axam/internal/syntax"
+	"github.com/alexshescp/axam/internal/text"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/uniseg"
 )
@@ -736,8 +736,7 @@ func (a *App) drawWelcome(b cellBox) {
 	st := style(a.theme.Fg, a.theme.Bg)
 	a.fill(b.x, b.y, b.w, b.h, st)
 	lines := []string{
-		"axam",
-		"TermStudio",
+		"Axam Studio",
 		"",
 		a.chordLabel("file.open") + "  open",
 		a.chordLabel("nav.quickOpen") + "  quick open",
@@ -750,7 +749,7 @@ func (a *App) drawWelcome(b cellBox) {
 			break
 		}
 		fg := a.theme.Fg
-		if line == "axam" {
+		if line == "Axam Studio" {
 			fg = a.theme.Accent
 		}
 		x := b.x + max(1, (b.w-uniseg.StringWidth(line))/2)

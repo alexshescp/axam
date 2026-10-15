@@ -16,7 +16,7 @@ import (
 	"unicode/utf16"
 	"unicode/utf8"
 
-	"github.com/codersclub/axam/internal/text"
+	"github.com/alexshescp/axam/internal/text"
 )
 
 // EOL is the on-disk line ending.

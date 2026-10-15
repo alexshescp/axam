@@ -15,7 +15,7 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/codersclub/axam/internal/buffer"
+	"github.com/alexshescp/axam/internal/buffer"
 )
 
 const (

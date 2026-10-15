@@ -10,8 +10,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/codersclub/axam/internal/buffer"
-	"github.com/codersclub/axam/internal/search"
+	"github.com/alexshescp/axam/internal/buffer"
+	"github.com/alexshescp/axam/internal/search"
 )
 
 // DefaultIgnore is always applied, in addition to user patterns.

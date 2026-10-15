@@ -1,6 +1,7 @@
-# TermStudio architecture
+# Axam Studio architecture
 
-TermStudio is the editor. The installable command is `axam`.
+Axam Studio is the editor. The installable command is `axam`. The Go module
+path is `github.com/alexshescp/axam`.
 
 This page is the concise technical baseline. Related viewpoints:
 
@@ -69,11 +70,11 @@ Command, Super, and macOS Command shortcuts are not claimed. Terminals do not de
 
 ## Commands and profiles
 
-Profiles are data: TermStudio, Sublime, VS Code, and Notepad++. They are compatibility maps, not clones of those products. User bindings in the config file replace profile bindings after the profile is built. The same command ids serve the keymap, the command palette, and tests.
+Profiles are data: Axam Studio (`axam`), Sublime, VS Code, and Notepad++. They are compatibility maps, not clones of those products. The pre-rename id `termstudio` still loads the `axam` profile. User bindings in the config file replace profile bindings after the profile is built. The same command ids serve the keymap, the command palette, and tests.
 
 ## UI
 
-The screen is drawn by TermStudio, not by a widget toolkit. One tab row, an optional file list, the editor, an interactive bottom command menu, and one status row make up the permanent layout. Find, prompts, menu popups, and the command palette are overlays. The default theme is a dark palette with an amber active tab; it is not a copy of a proprietary theme. Colors degrade from true color to 256 and 16.
+The screen is drawn by Axam Studio, not by a widget toolkit. One tab row, an optional file list, the editor, an interactive bottom command menu, and one status row make up the permanent layout. Find, prompts, menu popups, and the command palette are overlays. The default theme is a dark palette with an amber active tab; it is not a copy of a proprietary theme. Colors degrade from true color to 256 and 16.
 
 The bottom menu contains command IDs, never alternate editing callbacks. It
 opens upward and uses the same command table as keybindings and the palette.
@@ -139,8 +140,8 @@ must distinguish automated editor behavior from real terminal delivery.
 Release builds use `CGO_ENABLED=0`, `-trimpath`, and a linker-supplied version.
 Four native targets are produced: Linux and macOS on amd64 and arm64. A
 Windows binary is built for development validation. The Debian package is
-constructed directly from `ar` and `tar.gz` members and installs both `axam`
-and the `termstudio` symlink. User configuration is not part of the package,
+constructed directly from `ar` and `tar.gz` members and installs `axam`,
+its manual page, and copyright metadata. User configuration is not part of the package,
 so upgrades retain it.
 
 ## What is intentionally out of scope

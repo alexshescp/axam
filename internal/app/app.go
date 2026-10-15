@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Coders Club (USA), Codepolder (Netherlands), Aleksandr Shaman.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-// Package app is the TermStudio session: documents, commands, and the screen.
+// Package app is the Axam Studio session: documents, commands, and the screen.
 package app
 
 import (
@@ -11,14 +11,14 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/codersclub/axam/internal/buffer"
-	"github.com/codersclub/axam/internal/clipboard"
-	"github.com/codersclub/axam/internal/commands"
-	"github.com/codersclub/axam/internal/config"
-	"github.com/codersclub/axam/internal/editor"
-	"github.com/codersclub/axam/internal/keymap"
-	"github.com/codersclub/axam/internal/syntax"
-	"github.com/codersclub/axam/internal/ui"
+	"github.com/alexshescp/axam/internal/buffer"
+	"github.com/alexshescp/axam/internal/clipboard"
+	"github.com/alexshescp/axam/internal/commands"
+	"github.com/alexshescp/axam/internal/config"
+	"github.com/alexshescp/axam/internal/editor"
+	"github.com/alexshescp/axam/internal/keymap"
+	"github.com/alexshescp/axam/internal/syntax"
+	"github.com/alexshescp/axam/internal/ui"
 	"github.com/gdamore/tcell/v2"
 )
 

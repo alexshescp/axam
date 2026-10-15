@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Coders Club (USA), Codepolder (Netherlands), Aleksandr Shaman.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-// Package ui holds the TermStudio color themes. The layout itself lives in
+// Package ui holds the Axam Studio color themes. The layout itself lives in
 // the app package so drawing stays next to editor state.
 package ui
 

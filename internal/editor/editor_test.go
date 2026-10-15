@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/codersclub/axam/internal/buffer"
-	"github.com/codersclub/axam/internal/text"
+	"github.com/alexshescp/axam/internal/buffer"
+	"github.com/alexshescp/axam/internal/text"
 )
 
 func doc(s string) *Editor {

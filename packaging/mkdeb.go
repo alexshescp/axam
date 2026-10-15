@@ -4,7 +4,8 @@
 //go:build ignore
 
 // Command mkdeb writes a .deb that apt can install from a local file.
-// It does not need dpkg. The payload is a static axam binary plus a termstudio symlink.
+// It does not need dpkg. The payload is a static axam binary, a man page, and
+// copyright metadata.
 package main
 
 import (
@@ -46,7 +47,6 @@ func main() {
 	})
 	data, err := tarGz(map[string]entry{
 		"usr/bin/axam":                 {body: blob, mode: 0o755},
-		"usr/bin/termstudio":           {link: "axam", mode: 0o777},
 		"usr/share/doc/axam/copyright": {body: []byte(copyright), mode: 0o644},
 		"usr/share/man/man1/axam.1":    {body: []byte(man), mode: 0o644},
 	})
@@ -177,19 +177,20 @@ Version: %s
 Section: editors
 Priority: optional
 Architecture: %s
-Maintainer: Coders Club, Codepolder, Aleksandr Shaman <packaging@codersclub.invalid>
-Description: TermStudio, a terminal-native text editor
+Maintainer: Coders Club, Codepolder, Aleksandr Shaman <axam@codcl.com>
+Homepage: https://github.com/alexshescp/axam
+Description: Axam Studio, a terminal-native text editor
  axam edits text in a Linux or macOS terminal, including SSH sessions.
- The same binary is also installed as termstudio.
- The packaging address is not a monitored mailbox.
+ Support: axam@codcl.com
+ Issues: https://github.com/alexshescp/axam/issues.
 `, version, arch)
 }
 
 func copyrightText() string {
 	return `Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: axam
-Upstream-Contact: Coders Club (USA), Codepolder (Netherlands), Aleksandr Shaman
-Source: github.com/codersclub/axam
+Upstream-Contact: Coders Club (USA), Codepolder (Netherlands), Aleksandr Shaman <axam@codcl.com>
+Source: https://github.com/alexshescp/axam
 
 Files: *
 Copyright: 2026 Coders Club (USA), Codepolder (Netherlands), Aleksandr Shaman
@@ -200,9 +201,9 @@ License: GPL-3.0-or-later
 }
 
 func manPage(version string) string {
-	return fmt.Sprintf(`.TH AXAM 1 "2026" "axam %s" "TermStudio"
+	return fmt.Sprintf(`.TH AXAM 1 "2026" "axam %s" "Axam Studio"
 .SH NAME
-axam, termstudio \- terminal-native text editor
+axam \- Axam Studio, a terminal-native text editor
 .SH SYNOPSIS
 .B axam
 [\fIflags\fR] [\fIfile\fR|\fIdirectory\fR ...]
@@ -214,7 +215,7 @@ axam, termstudio \- terminal-native text editor
 .br
 .B axam version
 .SH DESCRIPTION
-axam is TermStudio, a modeless terminal editor. It runs in a local Linux or
+axam is Axam Studio, a modeless terminal editor. It runs in a local Linux or
 macOS terminal and over SSH. Command-key shortcuts from a Mac keyboard are
 not available through the terminal byte stream.
 .PP
@@ -225,7 +226,8 @@ F10 opens the bottom File/Edit/Selection/Find/View/Goto/Help command menu.
 .SH OPTIONS
 .TP
 .B \-\-profile name
-Keymap profile: termstudio, sublime, vscode, notepadpp, or custom.
+Keymap profile: axam, sublime, vscode, notepadpp, or custom.
+The pre-rename id termstudio is accepted as an alias of axam.
 .TP
 .B \-\-config path
 Configuration file. The default is the user config path under
@@ -246,8 +248,14 @@ The installed documentation and
 for terminal limits.
 .SH LICENSE
 GPL-3.0-or-later
+.SH SOURCE
+https://github.com/alexshescp/axam
 .SH AUTHORS
 Coders Club (USA), Codepolder (Netherlands), Aleksandr Shaman.
+.SH BUGS
+Support: axam@codcl.com
+.br
+https://github.com/alexshescp/axam/issues
 `, version)
 }
 

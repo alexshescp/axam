@@ -10,12 +10,12 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/codersclub/axam/internal/buffer"
-	"github.com/codersclub/axam/internal/config"
-	"github.com/codersclub/axam/internal/editor"
-	"github.com/codersclub/axam/internal/files"
-	"github.com/codersclub/axam/internal/project"
-	"github.com/codersclub/axam/internal/syntax"
+	"github.com/alexshescp/axam/internal/buffer"
+	"github.com/alexshescp/axam/internal/config"
+	"github.com/alexshescp/axam/internal/editor"
+	"github.com/alexshescp/axam/internal/files"
+	"github.com/alexshescp/axam/internal/project"
+	"github.com/alexshescp/axam/internal/syntax"
 )
 
 func (a *App) newDoc(name string, ed *editor.Editor) *Document {

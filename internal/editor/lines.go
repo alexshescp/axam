@@ -7,7 +7,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/codersclub/axam/internal/text"
+	"github.com/alexshescp/axam/internal/text"
 )
 
 // DeleteLine removes every line touched by a cursor.

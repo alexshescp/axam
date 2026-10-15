@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Coders Club (USA), Codepolder (Netherlands), Aleksandr Shaman.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-// Package text is the geometry layer for TermStudio.
+// Package text is the geometry layer for Axam Studio.
 //
 // Positions use byte offsets that are always on a grapheme boundary.
 // Visual columns are a separate measurement: tabs, East-Asian width,

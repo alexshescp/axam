@@ -1,6 +1,7 @@
 # Libraries and dependencies
 
-axam 1.1 pins Go module versions in `go.mod` and hashes module content in
+Axam Studio 1.1 is the Go module `github.com/alexshescp/axam`. It pins
+dependency versions in `go.mod` and hashes module content in
 `go.sum`. Release builds use `CGO_ENABLED=0`; none of the direct dependencies
 requires a graphical runtime or network service.
 

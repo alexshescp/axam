@@ -1,4 +1,4 @@
-module github.com/codersclub/axam
+module github.com/alexshescp/axam
 
 go 1.26.3
 

@@ -12,7 +12,7 @@ editing command.
 User bindings in `config.toml` override a profile. An empty command unbinds a chord.
 
 ```toml
-keymap_profile = "termstudio"
+keymap_profile = "axam"
 
 [bindings]
 "ctrl+q" = "file.quit"
@@ -60,7 +60,9 @@ These exist in every profile. Ctrl+K starts a chord. Escape cancels it.
 
 Ctrl+Shift+letter is listed below only as an enhanced-keyboard binding. Legacy terminals collapse it into Ctrl+letter. Do not treat it as supported on Terminal.app or a stock SSH session unless `axam doctor` and a manual key check say the sequence arrived.
 
-## TermStudio and Sublime
+`termstudio` is accepted as an alias of `axam` so configs written before the rename keep loading.
+
+## Axam Studio and Sublime
 
 Copy and cut with an empty selection take the whole line.
 

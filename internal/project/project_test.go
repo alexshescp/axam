@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/codersclub/axam/internal/search"
+	"github.com/alexshescp/axam/internal/search"
 )
 
 func TestSkipsGitAndLimit(t *testing.T) {

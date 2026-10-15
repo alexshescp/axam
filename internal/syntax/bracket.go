@@ -6,7 +6,7 @@ package syntax
 import (
 	"unicode/utf8"
 
-	"github.com/codersclub/axam/internal/text"
+	"github.com/alexshescp/axam/internal/text"
 )
 
 var pairs = map[rune]rune{

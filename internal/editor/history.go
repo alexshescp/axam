@@ -3,7 +3,7 @@
 
 package editor
 
-import "github.com/codersclub/axam/internal/text"
+import "github.com/alexshescp/axam/internal/text"
 
 // Undo lives next to the editor because a transaction has to restore carets,
 // not only bytes. A separate undo engine would re-encode the same snapshots.

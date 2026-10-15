@@ -6,7 +6,7 @@ package keymap
 import (
 	"fmt"
 
-	"github.com/codersclub/axam/internal/commands"
+	"github.com/alexshescp/axam/internal/commands"
 )
 
 // Info describes a compatibility profile. These maps are not claims that a
@@ -20,15 +20,17 @@ type Info struct {
 
 // Profiles returns the built-in profile ids.
 func Profiles() []string {
-	return []string{"termstudio", "sublime", "vscode", "notepadpp"}
+	return []string{"axam", "sublime", "vscode", "notepadpp"}
 }
 
 // Load builds a profile. Unknown names return an error.
-// "custom" inherits TermStudio; user bindings are applied by the caller.
+// "custom" inherits the Axam Studio profile; user bindings are applied by the
+// caller. "termstudio" is the pre-rename id and stays accepted so existing
+// config files keep loading.
 func Load(name string) (*Map, Info, error) {
 	switch name {
-	case "", "termstudio", "custom", "default":
-		return build("termstudio", Info{ID: "termstudio", Title: "TermStudio", CopyLine: true, CutLine: true}, termstudioExtra())
+	case "", "axam", "termstudio", "custom", "default":
+		return build("axam", Info{ID: "axam", Title: "Axam Studio", CopyLine: true, CutLine: true}, axamExtra())
 	case "sublime":
 		return build("sublime", Info{ID: "sublime", Title: "Sublime Text", CopyLine: true, CutLine: true}, sublimeExtra())
 	case "vscode":
@@ -131,7 +133,7 @@ func shared() [][2]string {
 	}
 }
 
-func termstudioExtra() [][2]string {
+func axamExtra() [][2]string {
 	return [][2]string{
 		{"ctrl+d", commands.EditNextOccurrence},
 		{"ctrl+shift+d", commands.EditDuplicateLine},

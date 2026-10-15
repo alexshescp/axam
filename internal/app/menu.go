@@ -6,8 +6,8 @@ package app
 import (
 	"strings"
 
-	"github.com/codersclub/axam/internal/commands"
-	"github.com/codersclub/axam/internal/input"
+	"github.com/alexshescp/axam/internal/commands"
+	"github.com/alexshescp/axam/internal/input"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/uniseg"
 )

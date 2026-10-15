@@ -6,7 +6,7 @@ package syntax
 import (
 	"testing"
 
-	"github.com/codersclub/axam/internal/text"
+	"github.com/alexshescp/axam/internal/text"
 )
 
 func TestLanguagesPresent(t *testing.T) {

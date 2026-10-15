@@ -9,7 +9,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/codersclub/axam/internal/keymap"
+	"github.com/alexshescp/axam/internal/keymap"
 	"github.com/gdamore/tcell/v2"
 )
 

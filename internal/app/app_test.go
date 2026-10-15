@@ -9,9 +9,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/codersclub/axam/internal/commands"
-	"github.com/codersclub/axam/internal/config"
-	"github.com/codersclub/axam/internal/text"
+	"github.com/alexshescp/axam/internal/commands"
+	"github.com/alexshescp/axam/internal/config"
+	"github.com/alexshescp/axam/internal/text"
 	"github.com/gdamore/tcell/v2"
 )
 

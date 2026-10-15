@@ -4,7 +4,7 @@
 package editor
 
 import (
-	"github.com/codersclub/axam/internal/text"
+	"github.com/alexshescp/axam/internal/text"
 )
 
 // width is the wrapped content width in cells. Zero disables wrapping.

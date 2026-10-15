@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Coders Club (USA), Codepolder (Netherlands), Aleksandr Shaman.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-// Command axam is TermStudio, a terminal-native text editor.
+// Command axam is Axam Studio, a terminal-native text editor.
 package main
 
 import (
@@ -10,10 +10,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/codersclub/axam/internal/app"
-	"github.com/codersclub/axam/internal/config"
-	"github.com/codersclub/axam/internal/doctor"
-	"github.com/codersclub/axam/internal/keymap"
+	"github.com/alexshescp/axam/internal/app"
+	"github.com/alexshescp/axam/internal/config"
+	"github.com/alexshescp/axam/internal/doctor"
+	"github.com/alexshescp/axam/internal/keymap"
 	"github.com/gdamore/tcell/v2"
 )
 
@@ -26,7 +26,7 @@ func main() {
 func run(args []string) int {
 	fs := flag.NewFlagSet("axam", flag.ContinueOnError)
 	fs.SetOutput(os.Stdout)
-	profile := fs.String("profile", "", "keymap profile: termstudio, sublime, vscode, notepadpp, custom")
+	profile := fs.String("profile", "", "keymap profile: axam, sublime, vscode, notepadpp, custom")
 	configPath := fs.String("config", "", "path to config.toml")
 	force := fs.Bool("force", false, "open files larger than 256 MiB (binary files are still refused)")
 	noConfig := fs.Bool("no-config", false, "use defaults and do not read config.toml")
@@ -41,7 +41,7 @@ func run(args []string) int {
 			fmt.Print(usageText())
 			return 0
 		case "version", "--version", "-version":
-			fmt.Printf("axam %s\nTermStudio\nCopyright (C) 2026 Coders Club (USA), Codepolder (Netherlands), Aleksandr Shaman\nLicense: GPL-3.0-or-later\n", version)
+			fmt.Printf("axam %s\nAxam Studio\nhttps://github.com/alexshescp/axam\nSupport: axam@codcl.com\nCopyright (C) 2026 Coders Club (USA), Codepolder (Netherlands), Aleksandr Shaman\nLicense: GPL-3.0-or-later\n", version)
 			return 0
 		case "doctor":
 			fmt.Print(doctor.Collect(0, 0, 0).String())
@@ -49,7 +49,7 @@ func run(args []string) int {
 		case "keymap":
 			name := *profile
 			if name == "" {
-				name = "termstudio"
+				name = "axam"
 			}
 			if len(rest) > 1 {
 				name = rest[1]
@@ -118,7 +118,7 @@ func printKeymap(name string) int {
 
 func usageText() string {
 	return strings.TrimSpace(`
-axam — TermStudio, a terminal-native text editor
+axam — Axam Studio, a terminal-native text editor
 
 Usage:
   axam [flags] [file|directory ...]
@@ -128,7 +128,7 @@ Usage:
   axam help
 
 Flags:
-  --profile name   termstudio, sublime, vscode, notepadpp, or custom
+  --profile name   axam, sublime, vscode, notepadpp, or custom
   --config path    configuration file (default: the user config path)
   --force          allow files larger than 256 MiB
   --no-config      ignore the user configuration
@@ -137,6 +137,7 @@ Install:
   sudo apt install ./axam_<version>_amd64.deb
   or copy the axam binary onto PATH
 
-The termstudio name is the same program. A package install links it to axam.
+Source: https://github.com/alexshescp/axam
+Support: axam@codcl.com
 `) + "\n"
 }
