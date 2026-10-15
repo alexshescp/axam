@@ -24,27 +24,132 @@ Support: [axam@codcl.com](mailto:axam@codcl.com).
 
 ## Install and update
 
-A local Debian package, then a copy of the binary, are the two install paths. You do not need a Go toolchain for either.
+Release 1.1.0 is the GitHub release tag `v1.1.0`. Each block downloads that
+asset by a direct link. A `.deb` install also places the manual page and
+copyright file. A static binary can be run as `./axam` from the download
+directory; copying it onto `PATH` is optional. These paths do not need a Go
+toolchain.
+
+### Debian and Ubuntu, 64-bit Intel/AMD
 
 ```bash
+curl -fL -o axam_1.1.0_amd64.deb \
+  https://github.com/alexshescp/axam/releases/download/v1.1.0/axam_1.1.0_amd64.deb
 sudo apt install ./axam_1.1.0_amd64.deb
-axam
 ```
 
-`apt` accepts a path to a `.deb`. The package installs `/usr/bin/axam`, its manual page, and copyright metadata. arm64 builds use `axam_1.1.0_arm64.deb`.
-
-Or download the static binary for your OS and put it on `PATH`:
-
-| File | System |
-| --- | --- |
-| `axam_linux_amd64` | Ubuntu and other Linux, 64-bit Intel/AMD |
-| `axam_linux_arm64` | Linux, 64-bit ARM |
-| `axam_darwin_amd64` | macOS, Intel |
-| `axam_darwin_arm64` | macOS, Apple silicon |
+### Debian and Ubuntu, 64-bit ARM
 
 ```bash
-install -m 0755 axam_linux_amd64 /usr/local/bin/axam
+curl -fL -o axam_1.1.0_arm64.deb \
+  https://github.com/alexshescp/axam/releases/download/v1.1.0/axam_1.1.0_arm64.deb
+sudo apt install ./axam_1.1.0_arm64.deb
 ```
+
+### Other Linux, 64-bit Intel/AMD
+
+```bash
+curl -fL -o axam \
+  https://github.com/alexshescp/axam/releases/download/v1.1.0/axam_linux_amd64
+chmod +x axam
+./axam
+```
+
+Optional install:
+
+```bash
+sudo install -m 0755 axam /usr/local/bin/axam
+```
+
+### Other Linux, 64-bit ARM
+
+```bash
+curl -fL -o axam \
+  https://github.com/alexshescp/axam/releases/download/v1.1.0/axam_linux_arm64
+chmod +x axam
+./axam
+```
+
+Optional install:
+
+```bash
+sudo install -m 0755 axam /usr/local/bin/axam
+```
+
+### macOS, Intel
+
+```bash
+curl -fL -o axam \
+  https://github.com/alexshescp/axam/releases/download/v1.1.0/axam_darwin_amd64
+chmod +x axam
+xattr -d com.apple.quarantine axam || true
+./axam
+```
+
+Optional install:
+
+```bash
+sudo install -m 0755 axam /usr/local/bin/axam
+```
+
+### macOS, Apple silicon
+
+```bash
+curl -fL -o axam \
+  https://github.com/alexshescp/axam/releases/download/v1.1.0/axam_darwin_arm64
+chmod +x axam
+xattr -d com.apple.quarantine axam || true
+./axam
+```
+
+Optional install:
+
+```bash
+sudo install -m 0755 axam /usr/local/bin/axam
+```
+
+`xattr` clears the quarantine flag macOS adds to a downloaded binary. `|| true`
+keeps the next command running when that attribute is already absent.
+
+### Midnight Commander
+
+F4 uses axam when `EDITOR` is `axam` and Midnight Commander's internal editor
+is off. Set `EDITOR` before `mc` starts. Quit a running `mc` first: on exit it
+can write the old setting back over `~/.config/mc/ini`.
+
+```bash
+rc="$HOME/.bashrc"
+case "$SHELL" in */zsh) rc="$HOME/.zshrc" ;; esac
+touch "$rc"
+grep -qx 'export EDITOR=axam' "$rc" || printf '\nexport EDITOR=axam\n' >> "$rc"
+export EDITOR=axam
+
+ini="${XDG_CONFIG_HOME:-$HOME/.config}/mc/ini"
+mkdir -p "$(dirname "$ini")"
+touch "$ini"
+awk '
+  BEGIN { found = 0; section = 0; inserted = 0 }
+  /^\[Midnight-Commander\][[:space:]]*$/ { section = 1; print; next }
+  /^\[/ {
+    if (section && !found) { print "use_internal_edit=0"; inserted = 1 }
+    section = 0
+    print
+    next
+  }
+  section && /^use_internal_edit=/ { print "use_internal_edit=0"; found = 1; next }
+  { print }
+  END {
+    if (!found && !inserted) {
+      if (section) print "use_internal_edit=0"
+      else printf "\n[Midnight-Commander]\nuse_internal_edit=0\n"
+    }
+  }
+' "$ini" > "$ini.tmp" && mv "$ini.tmp" "$ini"
+```
+
+Then start `mc` and press F4. Older Midnight Commander reads `~/.mc/ini`
+instead of `~/.config/mc/ini`; put `use_internal_edit=0` in the file that
+installation uses.
 
 With a Go toolchain:
 

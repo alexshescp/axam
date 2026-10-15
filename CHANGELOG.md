@@ -31,6 +31,9 @@ for release artifacts.
   `termstudio` load that same profile.
 - The Debian package installs `/usr/bin/axam` without a second command name.
 - Support mail is axam@codcl.com.
+- Install instructions include a direct GitHub release download and an
+  optional install command for each Linux and macOS target, plus the
+  Midnight Commander `EDITOR` setup.
 
 ### Preserved limitations
 
